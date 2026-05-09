@@ -1303,7 +1303,15 @@ body {
   /* Flip cards: tap to flip on mobile */
   .flip-card:hover .flip-card-inner { transform: none; }
   .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-  .flip-card-inner { min-height: 240px; }
+  .flip-card-inner { height: auto; min-height: auto; }
+  .flip-card-front {
+    position: relative;
+    height: auto;
+  }
+  .flip-card-back {
+    position: absolute;
+    height: 100%;
+  }
 }
 @media (max-width: 480px) {
   .nav-links a { font-size: 0.72rem; }
