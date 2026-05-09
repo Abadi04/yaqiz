@@ -686,6 +686,78 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* ─── SHARE BUTTONS ─── */
+.share-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.share-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.share-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-family: var(--font-ar);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  border: 2px solid transparent;
+}
+.share-btn:active { transform: scale(0.95); }
+.share-btn svg { flex-shrink: 0; }
+
+.share-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+.share-whatsapp:hover {
+  background: #1DA851;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.share-twitter {
+  background: #0F1419;
+  color: #fff;
+}
+.share-twitter:hover {
+  background: #1A1F24;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(15, 20, 25, 0.35);
+}
+
+.share-snapchat {
+  background: #FFFC00;
+  color: #000;
+}
+.share-snapchat:hover {
+  background: #E6E300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 252, 0, 0.35);
+}
+
+.result-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ─── CONFETTI ─── */
 .confetti-piece {
   position: fixed;
