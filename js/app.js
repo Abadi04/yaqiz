@@ -16,6 +16,8 @@
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     if (hash === '#/' || hash === '') document.getElementById('nav-home')?.classList.add('active');
     else if (hash.startsWith('#/categor')) document.getElementById('nav-categories')?.classList.add('active');
+    else if (hash === '#/challenge') document.getElementById('nav-challenge')?.classList.add('active');
+    else if (hash === '#/leaderboard') document.getElementById('nav-leaderboard')?.classList.add('active');
     else if (hash === '#/about') document.getElementById('nav-about')?.classList.add('active');
 
     // Route
@@ -33,6 +35,10 @@
         if (puzzle.isPremium) { Premium.showModal(); window.location.hash = '#/'; }
         else Game.render(puzzle);
       }
+    } else if (hash === '#/leaderboard') {
+      Leaderboard.render();
+    } else if (hash === '#/challenge') {
+      Challenge.renderLanding();
     } else if (hash === '#/about') {
       renderAbout();
     }
@@ -88,6 +94,21 @@
 
       <div style="text-align:center;margin-top:3rem" class="fade-in">
         <a href="#/categories" class="btn btn-secondary">تصفح جميع الفئات ←</a>
+      </div>
+
+      <div class="challenge-cta fade-in" style="margin-top:2.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
+        <a href="#/challenge" class="category-card" style="flex:1;max-width:350px;border:2px solid var(--accent);text-decoration:none">
+          <span class="cat-icon">⚡</span>
+          <h3>تحدي الـ ٦٠ ثانية</h3>
+          <p>حل أكبر عدد من الألغاز في دقيقة واحدة!</p>
+          <span class="cat-count" style="background:var(--accent);color:#fff">ابدأ الآن</span>
+        </a>
+        <a href="#/leaderboard" class="category-card" style="flex:1;max-width:350px;text-decoration:none">
+          <span class="cat-icon">🏆</span>
+          <h3>لوحة المتصدرين</h3>
+          <p>شاهد ترتيبك بين أقوى العقول</p>
+          <span class="cat-count">عرض الترتيب</span>
+        </a>
       </div>`;
 
     updateDailyCountdown();
