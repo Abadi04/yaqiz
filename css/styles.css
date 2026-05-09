@@ -1280,8 +1280,9 @@ body {
 @media (max-width: 768px) {
   .nav { padding: 0 1rem; }
   .nav-stats { display: none; }
-  .nav-links { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
-  .nav-links a { font-size: 0.78rem; }
+  .nav-links { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { font-size: 1rem; }
+  .nav-links a.active { font-weight: 800; color: var(--accent); }
   #app { padding: 1rem; }
   .hero { padding: 3rem 0.5rem 2rem; }
   .puzzle-grid { grid-template-columns: 1fr; }
@@ -1314,7 +1315,7 @@ body {
   }
 }
 @media (max-width: 480px) {
-  .nav-links a { font-size: 0.72rem; }
+  .nav-links a { font-size: 0.95rem; }
   .hero h1 { font-size: 1.8rem; }
   .game-content { padding: 1.5rem; }
   .color-grid { grid-template-columns: repeat(2,1fr); }
