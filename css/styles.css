@@ -1100,6 +1100,182 @@ body {
   animation: confettiFall 3s ease-in forwards;
 }
 
+/* ─── PARTICLES CANVAS ─── */
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero > *:not(.particles-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── 3D FLIP CARDS ─── */
+.flip-card {
+  perspective: 1000px;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+.flip-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.flip-card-front {
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  padding: 1.8rem;
+  z-index: 2;
+}
+.flip-card-back {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E8E0FF 50%, #F0EBFF 100%);
+  box-shadow: var(--shadow-md);
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.8rem;
+}
+.flip-back-content {
+  text-align: center;
+  width: 100%;
+}
+.flip-back-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+.flip-back-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.flip-back-divider {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 2px;
+  margin: 0 auto 0.75rem;
+}
+.flip-back-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.flip-back-hint {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.flip-back-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+.flip-back-benefit {
+  font-size: 0.78rem;
+  color: var(--accent);
+  background: rgba(79, 70, 229, 0.08);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-sm);
+  line-height: 1.5;
+}
+
+/* ─── CUSTOM CURSOR ─── */
+.custom-cursor {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.05) 70%, transparent 100%);
+  border: 1.5px solid rgba(139, 92, 246, 0.3);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              opacity 0.3s ease;
+  mix-blend-mode: normal;
+}
+.custom-cursor.cursor-hover {
+  width: 56px;
+  height: 56px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0.03) 70%, transparent 100%);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+.custom-cursor-dot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.8);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+.custom-cursor-dot.cursor-hover {
+  background: rgba(99, 102, 241, 1);
+}
+
+/* Hide default cursor when custom cursor is active */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none !important;
+  }
+  a, button, input, select, textarea, .btn, .puzzle-card, .category-card,
+  .choice-btn, .color-btn, .shape-item, .share-btn, .price-card, .nav-logo {
+    cursor: none !important;
+  }
+}
+
+/* ─── COUNT-UP ANIMATION HELPER ─── */
+.hero-stats span {
+  transition: transform 0.3s ease;
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .nav { padding: 0 1rem; }
@@ -1122,6 +1298,12 @@ body {
   .ch-results-grid { gap: 0.8rem; }
   .ch-result-stat { min-width: 80px; padding: 0.8rem; }
   .ch-math-problem { font-size: 1.8rem; }
+  /* Hide custom cursor on mobile/touch */
+  .custom-cursor, .custom-cursor-dot { display: none !important; }
+  /* Flip cards: tap to flip on mobile */
+  .flip-card:hover .flip-card-inner { transform: none; }
+  .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+  .flip-card-inner { min-height: 240px; }
 }
 @media (max-width: 480px) {
   .nav-links a { font-size: 0.72rem; }

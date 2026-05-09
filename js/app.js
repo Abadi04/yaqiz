@@ -3,6 +3,7 @@
   function init() {
     Premium.init();
     Progress.updateNavStats();
+    Enhancements.init();
     window.addEventListener('hashchange', route);
     if (!window.location.hash) window.location.hash = '#/';
     route();
